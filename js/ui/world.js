@@ -12,6 +12,7 @@ export function renderWorld(root, id) {
   const idx = worlds().indexOf(w);
   const p = worldProgress(w);
   const unlocked = isWorldUnlocked(w);
+  let nextMarked = false;
   root.innerHTML = `
     <nav class="crumbs" aria-label="Breadcrumb"><a href="#/home">← Map</a></nav>
     <section class="world-hero brick" style="${brickStyle(w.color, '#d01012')}">
@@ -28,6 +29,7 @@ export function renderWorld(root, id) {
       ${(w.exercises || []).map((e, i) => {
         const open = isExerciseUnlocked(e.id);
         const stars = starsFor(e.id);
+        const isNext = open && !stars && !nextMarked && (nextMarked = true);
         const inner = `
           <span class="ex-num" aria-hidden="true">${i + 1}</span>
           <span class="ex-body">
@@ -36,7 +38,7 @@ export function renderWorld(root, id) {
           </span>
           <span class="ex-go" aria-hidden="true">${open ? (stars ? '↻' : '▶') : ''}</span>`;
         return `<li>${open
-          ? `<a class="ex-brick brick${stars ? ' done' : ''}" style="${brickStyle(w.color, '#d01012')}" href="#/play/${esc(e.id)}">${inner}</a>`
+          ? `<a class="ex-brick brick${stars ? ' done' : ''}${isNext ? ' next' : ''}" style="${brickStyle(w.color, '#d01012')}" href="#/play/${esc(e.id)}">${inner}</a>`
           : `<div class="ex-brick brick locked" aria-disabled="true">${inner}</div>`}</li>`;
       }).join('')}
     </ol>`;

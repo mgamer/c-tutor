@@ -254,7 +254,7 @@ export function renderExercise(root, id) {
     } else {
       const a = game.recordFailedCheck(id, verdict);
       renderHelp();
-      if (a.checks === 3 && ex.solution) toast('Stuck? The solution is now unlocked in the Task tab.', { icon: '🔑', color: 'blue' });
+      if (a.checks === 3 && ex.solution) toast(`Stuck? You can now peek at the solution${isMobile() ? ' in the Task tab' : ''}.`, { icon: '🔑', color: 'blue' });
     }
   }
 

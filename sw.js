@@ -1,6 +1,6 @@
 // Brick++ service worker: cache-first for app files so the site works offline.
 // Bump VERSION whenever any file changes to make clients pick up the new build.
-const VERSION = 'brickpp-v1';
+const VERSION = 'brickpp-v2';
 const FONT_CACHE = 'brickpp-fonts';
 
 const APP_FILES = [
@@ -28,10 +28,13 @@ const APP_FILES = [
   './js/ui/playground.js',
   './js/ui/quiz.js',
   './js/ui/profile.js',
-  './js/engine/runner.js',
-  './js/engine/judge.js',
-  './js/engine/worker.js',
+  './js/engine/compiler.js',
   './js/engine/interpreter.js',
+  './js/engine/judge.js',
+  './js/engine/lexer.js',
+  './js/engine/parser.js',
+  './js/engine/runner.js',
+  './js/engine/worker.js',
   './js/data/exercises.js',
   './js/data/quiz.js',
 ];

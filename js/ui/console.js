@@ -43,6 +43,7 @@ export function renderConsole(host, st) {
       ${st.stdin ? `<div class="console-stdin"><span class="label">input</span><pre>${esc(st.stdin)}</pre></div>` : ''}
       ${out || !result.error ? `<pre class="console-out${out ? '' : ' muted'}">${out ? esc(out) : '(no output)'}</pre>` : '<div class="console-gap"></div>'}
       ${result.error ? errorBoxHtml(result.error) : ''}
+      ${(result.warnings || []).map((w) => `<p class="warn-box">⚠️ ${w.line ? `<b>Line ${w.line}:</b> ` : ''}${esc(w.message)}</p>`).join('')}
     </div>`;
   const btn = host.querySelector('.err-line');
   if (btn && st.onErrorLine) btn.addEventListener('click', () => st.onErrorLine(+btn.dataset.line, +btn.dataset.col));

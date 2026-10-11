@@ -66,9 +66,11 @@ export function celebrate(r) {
   const improved = r.stars > r.prevStars;
   const starRow = [0, 1, 2].map((i) => `<span class="big-star${i < r.stars ? ' on' : ''}" style="--i:${i}" aria-hidden="true">★</span>`).join('');
   const rank = getRank();
+  const wc = String(r.color || '').toLowerCase();
+  const others = ['#f2cd37', '#0055bf', '#d01012', '#237841'].filter((c) => c !== wc).slice(0, 2);
   wrap.innerHTML = `
     <div class="modal celebrate brick-card" role="dialog" aria-modal="true" aria-labelledby="cel-title" style="--wc:${esc(r.color || '#d01012')}">
-      <div class="cel-bricks" aria-hidden="true"><span></span><span></span><span></span></div>
+      <div class="cel-bricks" aria-hidden="true"><span></span>${others.map((c) => `<span style="background:${c}"></span>`).join('')}</div>
       <h2 id="cel-title">${r.isLast ? 'You finished everything!' : r.worldDone ? 'World complete!' : 'Brick snapped in!'}</h2>
       <p class="cel-sub">${esc(r.title)}</p>
       <div class="big-stars" aria-label="${r.stars} of 3 stars">${starRow}</div>
