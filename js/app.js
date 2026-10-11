@@ -43,9 +43,13 @@ function route() {
   if (!match) { location.replace('#/home'); return; }
   document.body.dataset.route = path.split('/')[1] || 'home';
   highlightNav(match.nav);
-  view.innerHTML = '';
   view.className = `view view-${document.body.dataset.route}`;
-  cleanup = match.render(view, ...match.params);
+  // Each page gets a brand-new element, so event listeners from the previous page
+  // (attached to its own root) can never fire on the new one.
+  const page = document.createElement('div');
+  page.className = 'page';
+  view.replaceChildren(page);
+  cleanup = match.render(page, ...match.params);
   window.scrollTo(0, 0);
   // Move focus for screen readers without scrolling.
   view.focus({ preventScroll: true });

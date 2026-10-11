@@ -1,6 +1,6 @@
 // Brick++ service worker: cache-first for app files so the site works offline.
 // Bump VERSION whenever any file changes to make clients pick up the new build.
-const VERSION = 'brickpp-v3';
+const VERSION = 'brickpp-v4';
 const FONT_CACHE = 'brickpp-fonts';
 
 const APP_FILES = [
