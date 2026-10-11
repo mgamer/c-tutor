@@ -99,8 +99,8 @@ export const QUIZ_TOPICS = [
     questions: [
       {
         q: 'What is a variable?',
-        options: ['A command that prints text', 'A named place in memory that stores a value', 'A kind of loop', 'A maths error'],
-        answer: 1,
+        options: ['A command that prints text', 'A kind of loop', 'A maths error', 'A named place in memory that stores a value'],
+        answer: 3,
         explain: 'A variable is like a labelled box: it has a name, a type (what can go in it) and a value that can change while the program runs.',
       },
       {
@@ -113,8 +113,8 @@ export const QUIZ_TOPICS = [
       {
         q: 'What does this print?',
         code: 'cout << 17 % 5;',
-        options: ['3', '2', '3.4', '5'],
-        answer: 1,
+        options: ['3', '3.4', '5', '2'],
+        answer: 3,
         explain: '% gives the remainder. 17 = 5 × 3 + 2, so the remainder is 2.',
       },
       {
@@ -197,8 +197,8 @@ export const QUIZ_TOPICS = [
     questions: [
       {
         q: 'What does `cin >> x;` do?',
-        options: ['Prints x', 'Reads a value from the input and stores it in x', 'Deletes x', 'Compares x with the input'],
-        answer: 1,
+        options: ['Reads a value from the input and stores it in x', 'Prints x', 'Deletes x', 'Compares x with the input'],
+        answer: 0,
         explain: 'cin is the input stream (usually the keyboard). >> takes the next value from it and puts it into the variable.',
       },
       {
@@ -243,8 +243,8 @@ export const QUIZ_TOPICS = [
       },
       {
         q: 'Which header do you need for `setprecision`?',
-        options: ['<iostream>', '<iomanip>', '<string>', '<cmath>'],
-        answer: 1,
+        options: ['<iostream>', '<string>', '<cmath>', '<iomanip>'],
+        answer: 3,
         explain: '<iomanip> stands for "input/output manipulators" - tools like setprecision that change how values are printed.',
       },
       {
@@ -387,8 +387,8 @@ export const QUIZ_TOPICS = [
       {
         q: 'How many times does this loop run?',
         code: 'for (int i = 1; i <= 5; i++) { ... }',
-        options: ['4', '5', '6', 'Forever'],
-        answer: 1,
+        options: ['5', '4', '6', 'Forever'],
+        answer: 0,
         explain: 'i takes the values 1, 2, 3, 4, 5 - that is 5 times. Note the <= : when i is 5 the loop still runs.',
       },
       {
@@ -443,8 +443,8 @@ export const QUIZ_TOPICS = [
       {
         q: 'What does this print?',
         code: 'int s = 0;\nfor (int i = 1; i <= 4; i++) {\n    s += i;\n}\ncout << s;',
-        options: ['4', '10', '24', '1234'],
-        answer: 1,
+        options: ['10', '4', '24', '1234'],
+        answer: 0,
         explain: 's collects a running total: 0 + 1 + 2 + 3 + 4 = 10.',
       },
       {
@@ -514,8 +514,8 @@ export const QUIZ_TOPICS = [
       },
       {
         q: 'What is recursion?',
-        options: ['A loop that never ends', 'When a function calls itself', 'When two variables have the same name', 'When a program runs twice'],
-        answer: 1,
+        options: ['A loop that never ends', 'When two variables have the same name', 'When a program runs twice', 'When a function calls itself'],
+        answer: 3,
         explain: 'A recursive function solves a problem by calling itself on a smaller version of the problem, until it reaches a simple base case.',
       },
       {
@@ -566,8 +566,8 @@ export const QUIZ_TOPICS = [
       {
         q: 'What does this print?',
         code: 'int a[5] = {10, 20, 30, 40, 50};\ncout << a[1];',
-        options: ['10', '20', '30', '1'],
-        answer: 1,
+        options: ['1', '10', '30', '20'],
+        answer: 3,
         explain: 'Indexes start at 0. a[0] is 10, so a[1] is the SECOND element: 20.',
       },
       {
@@ -733,8 +733,8 @@ export const QUIZ_TOPICS = [
       {
         q: 'What does this print?',
         code: 'string a = "apple", b = "banana";\ncout << (a < b);',
-        options: ['0', '1', 'apple', 'banana'],
-        answer: 1,
+        options: ['apple', 'banana', '0', '1'],
+        answer: 3,
         explain: 'Strings compare alphabetically (like in a dictionary). "apple" comes before "banana", so a < b is true, which cout prints as 1.',
       },
     ],
@@ -750,8 +750,8 @@ export const QUIZ_TOPICS = [
     questions: [
       {
         q: 'What is a struct?',
-        options: ['A kind of loop', 'A way to group related variables together into your own new type', 'A special string', 'A function that returns many values'],
-        answer: 1,
+        options: ['A way to group related variables together into your own new type', 'A kind of loop', 'A special string', 'A function that returns many values'],
+        answer: 0,
         explain: 'A struct bundles fields that belong together (like name, pieces and price of a set) into one new type you can use like int or string.',
       },
       {
@@ -777,8 +777,8 @@ export const QUIZ_TOPICS = [
       {
         q: 'What does this print?',
         code: 'struct Brick { int w; int l; };\n\n// in main:\nBrick b = {2, 6};\ncout << b.l;',
-        options: ['2', '6', '26', '12'],
-        answer: 1,
+        options: ['6', '2', '26', '12'],
+        answer: 0,
         explain: 'Brace initialisation fills the fields in the order they are declared: w gets 2, l gets 6.',
       },
       {
@@ -893,8 +893,8 @@ export const QUIZ_TOPICS = [
       {
         q: 'What does this print?',
         code: 'cout << pow(2, 10);',
-        options: ['20', '1024', '210', '100'],
-        answer: 1,
+        options: ['20', '210', '100', '1024'],
+        answer: 3,
         explain: 'pow(a, b) from <cmath> computes a to the power b. 2 to the power 10 is 1024.',
       },
       {
@@ -926,8 +926,8 @@ export const QUIZ_TOPICS = [
       },
       {
         q: 'Your program compiles but prints the wrong answer. What is the best next step?',
-        options: ['Delete everything and start over', 'Test it with small inputs where you know the right answer and print variables to see where it goes wrong', 'Add more semicolons', 'Wait and run it again later'],
-        answer: 1,
+        options: ['Delete everything and start over', 'Add more semicolons', 'Wait and run it again later', 'Test it with small inputs where you know the right answer and print variables to see where it goes wrong'],
+        answer: 3,
         explain: 'That is debugging! Small, known inputs and printing the values of variables at each step show you exactly where the program does something different from what you expected.',
       },
     ],

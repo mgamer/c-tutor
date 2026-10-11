@@ -1124,7 +1124,7 @@ export const WORLDS = [
           { stdin: '3\n', expected: 'Duplo time!\n', hidden: true },
         ],
         require: [{ pattern: '\\bif\\s*\\(', message: 'Use an if statement.' }],
-        xp: 20,
+        xp: 25,
       },
       {
         id: 'w4e2',
@@ -1195,7 +1195,7 @@ export const WORLDS = [
           { stdin: '1313\n', expected: '1313 is odd\n', hidden: true },
         ],
         require: [{ pattern: '%', message: 'Use % to check the remainder.' }],
-        xp: 20,
+        xp: 25,
       },
       {
         id: 'w4e3',
@@ -2466,7 +2466,7 @@ export const WORLDS = [
           { stdin: '7 -1 7 0 3\n', expected: '3 0 7 -1 7\n', hidden: true },
         ],
         require: [{ pattern: '\\[\\s*5\\s*\\]', message: 'Store the numbers in an array: int a[5];' }],
-        xp: 35,
+        xp: 40,
       },
       {
         id: 'w7e2',
@@ -2557,7 +2557,7 @@ export const WORLDS = [
           { stdin: '6 9 9 2 9 2 4\n', expected: 'Max: 9\nMin: 2\n', hidden: true },
         ],
         require: [{ pattern: 'vector\\s*<\\s*int\\s*>', message: 'Store the numbers in a vector<int>.' }],
-        xp: 35,
+        xp: 40,
       },
       {
         id: 'w7e3',
@@ -2878,7 +2878,7 @@ export const WORLDS = [
           ##.#
           ....
           ####
-          Total bricks: 10
+          Total bricks: 11
           \`\`\`
         `,
         starter: cpp`
@@ -2925,7 +2925,7 @@ export const WORLDS = [
           'Add every height to a total while you print, and put endl after each row.',
         ],
         tests: [
-          { stdin: '0 1 0 0\n2 3 0 1\n0 0 0 0\n1 1 1 1\n', expected: '.#..\n##.#\n....\n####\nTotal bricks: 10\n' },
+          { stdin: '0 1 0 0\n2 3 0 1\n0 0 0 0\n1 1 1 1\n', expected: '.#..\n##.#\n....\n####\nTotal bricks: 11\n' },
           { stdin: '0 0 0 0\n0 0 0 0\n0 0 0 0\n0 0 0 0\n', expected: '....\n....\n....\n....\nTotal bricks: 0\n' },
           { stdin: '5 0 0 5\n0 2 2 0\n0 2 2 0\n5 0 0 5\n', expected: '#..#\n.##.\n.##.\n#..#\nTotal bricks: 28\n', hidden: true },
         ],
@@ -3027,7 +3027,7 @@ export const WORLDS = [
           { stdin: 'Minifigure\n', expected: 'erugifiniM\n', hidden: true },
         ],
         forbid: [{ pattern: '\\breverse\\s*\\(', message: 'Use a loop instead of reverse() for this exercise.' }],
-        xp: 40,
+        xp: 45,
       },
       {
         id: 'w8e2',
@@ -3107,7 +3107,7 @@ export const WORLDS = [
           { stdin: 'AEIOU aeiou\n', expected: 'Vowels: 10\n', hidden: true },
           { stdin: 'Build it, then play!\n', expected: 'Vowels: 5\n', hidden: true },
         ],
-        xp: 40,
+        xp: 45,
       },
       {
         id: 'w8e3',
@@ -3406,7 +3406,7 @@ export const WORLDS = [
           { pattern: '\\bstruct\\s+LegoSet\\b', message: 'Define a struct called LegoSet.' },
           { pattern: '\\.\\s*pieces\\b', message: 'Use the dot to reach the fields, like s.pieces.' },
         ],
-        xp: 45,
+        xp: 50,
       },
       {
         id: 'w9e2',
@@ -3732,7 +3732,7 @@ export const WORLDS = [
           { stdin: '1\n', expected: '1\n', hidden: true },
           { stdin: '20\n', expected: '1\n2\nLego\n4\nBrick\nLego\n7\n8\nLego\nBrick\n11\nLego\n13\n14\nLegoBrick\n16\n17\nLego\n19\nBrick\n', hidden: true },
         ],
-        xp: 50,
+        xp: 55,
       },
       {
         id: 'w10e2',

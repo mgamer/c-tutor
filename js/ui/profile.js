@@ -34,7 +34,6 @@ export function renderProfile(root) {
             <p class="studs-line"><span class="stud-coin" aria-hidden="true"></span> <b>${s.studs}</b> studs to spend</p>
           </div>
         </section>
-
         <section class="brick-card shop" aria-labelledby="shop-h">
           <h2 id="shop-h">🛍️ Minifig Shop</h2>
           <div class="shop-tabs" role="tablist">
@@ -54,7 +53,6 @@ export function renderProfile(root) {
           </div>
           ${preview ? `<p class="small">Previewing. Tap again to buy.</p>` : '<p class="small muted">Tap to preview, tap again to buy or wear.</p>'}
         </section>
-
         <section class="brick-card stats" aria-labelledby="stats-h">
           <h2 id="stats-h">📊 Stats</h2>
           <dl class="stat-grid">
@@ -68,7 +66,6 @@ export function renderProfile(root) {
             <div><dt>Best streak</dt><dd>${s.streak.best}</dd></div>
           </dl>
         </section>
-
         <section class="brick-card badges-card" aria-labelledby="badges-h">
           <h2 id="badges-h">🏅 Badges <span class="muted small">${earned}/${game.BADGES.length}</span></h2>
           <ul class="badge-grid">
@@ -82,7 +79,6 @@ export function renderProfile(root) {
             }).join('')}
           </ul>
         </section>
-
         <section class="brick-card ranks-card" aria-labelledby="ranks-h">
           <h2 id="ranks-h">🪜 Ranks</h2>
           <ol class="rank-list">

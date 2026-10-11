@@ -571,6 +571,8 @@ details > .test-head { cursor: pointer; }
    Playground
    -------------------------------------------------------------------------- */
 .pg-head { margin-bottom: 14px; }
+.pg-out { position: sticky; top: calc(var(--topbar-h) + 16px); }
+.console-gap { height: 12px; }
 .pg-head h1 { margin-bottom: 2px; }
 .pg-cols { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: 24px; align-items: start; }
 .pg .ed-body { height: clamp(320px, calc(100vh - 380px), 620px); }
@@ -657,10 +659,11 @@ a.topic-card:active { transform: translateY(3px); }
    Modals, celebration, toasts
    -------------------------------------------------------------------------- */
 .modal-backdrop {
-  position: fixed; inset: 0; z-index: 60; display: grid; place-items: center; padding: 20px;
+  position: fixed; inset: 0; z-index: 60; display: grid; place-items: center; padding: 24px 16px;
+  overflow-y: auto; overscroll-behavior: contain;
   background: rgba(27, 42, 52, .55); animation: fade .2s ease;
 }
-.modal { width: min(460px, 100%); max-height: calc(100dvh - 40px); overflow-y: auto; animation: pop .3s cubic-bezier(.3, 1.5, .5, 1); }
+.modal { width: min(460px, 100%); animation: pop .3s cubic-bezier(.3, 1.5, .5, 1); }
 .modal h2 { margin-bottom: .4em; }
 .modal-actions { display: flex; gap: 12px; justify-content: flex-end; flex-wrap: wrap; margin-top: 18px; }
 @keyframes fade { from { opacity: 0; } }
@@ -722,7 +725,9 @@ a.topic-card:active { transform: translateY(3px); }
 /* --------------------------------------------------------------------------
    Profile
    -------------------------------------------------------------------------- */
-.profile-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px 24px; align-items: start; }
+.profile-grid { columns: 2 420px; column-gap: 24px; }
+.profile-grid > section { break-inside: avoid; display: block; margin: 8px 0 30px; }
+.profile-grid > .fig-card { display: flex; }
 .fig-card { display: flex; gap: 20px; align-items: center; }
 .fig-stage {
   flex: 0 0 140px; height: 210px; display: grid; place-items: center; border-radius: 12px;
@@ -758,7 +763,6 @@ a.topic-card:active { transform: translateY(3px); }
 .stat-grid dt { font-size: .82rem; color: var(--muted); font-weight: 600; }
 .stat-grid dd { margin: 0; font-family: var(--font); font-size: 1.5rem; font-weight: 700; }
 .stat-grid small { font-size: .9rem; color: var(--muted); font-weight: 500; }
-.badges-card { grid-row: span 2; }
 .badge-grid { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); gap: 12px; }
 .badge {
   display: grid; justify-items: center; text-align: center; gap: 2px; padding: 12px 8px; border-radius: 12px;
@@ -848,9 +852,9 @@ a.topic-card:active { transform: translateY(3px); }
   .ex-page .pane { display: none; }
   .ex-page.tab-task .pane-task, .ex-page.tab-code .pane-code, .ex-page.tab-output .pane-output { display: grid; gap: 16px; }
   .ex-page.tab-code .pane-code { display: block; }
-  .pane-code > .toolbar { display: none; }
-  .pane-code .toolbar { margin-bottom: 10px; }
-  .ex-page .ed-body { height: max(240px, calc(100dvh - var(--topbar-h) - 330px)); }
+  .pane-code > .toolbar [data-act=run], .pane-code > .toolbar [data-act=check] { display: none; }
+  .pane-code > .toolbar { margin: -6px 0 8px; }
+  .ex-page .ed-body { height: max(240px, calc(100dvh - var(--topbar-h) - 420px)); }
   .action-bar {
     display: flex; gap: 12px; position: fixed; left: 0; right: 0; bottom: 0; z-index: 40;
     padding: 6px 16px calc(12px + env(safe-area-inset-bottom));
@@ -860,10 +864,10 @@ a.topic-card:active { transform: translateY(3px); }
   .story-bubble { font-size: 1rem; }
 
   .pg-cols { grid-template-columns: 1fr; }
+  .pg-out { position: static; }
   .pg .ed-body { height: max(260px, calc(100dvh - 470px)); }
 
-  .profile-grid { grid-template-columns: 1fr; }
-  .badges-card { grid-row: auto; }
+  .profile-grid { columns: 1; }
   .toasts { left: 16px; right: 16px; bottom: calc(80px + env(safe-area-inset-bottom)); justify-items: center; max-width: none; }
 }
 

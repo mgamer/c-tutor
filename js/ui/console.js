@@ -41,7 +41,7 @@ export function renderConsole(host, st) {
       <div class="console-head"><span>📟 ${esc(st.title || 'Output')}</span>
         ${result.timeMs != null ? `<span class="console-time">${Math.round(result.timeMs)} ms</span>` : ''}</div>
       ${st.stdin ? `<div class="console-stdin"><span class="label">input</span><pre>${esc(st.stdin)}</pre></div>` : ''}
-      <pre class="console-out${out ? '' : ' muted'}">${out ? esc(out) : result.error ? '' : '(no output)'}</pre>
+      ${out || !result.error ? `<pre class="console-out${out ? '' : ' muted'}">${out ? esc(out) : '(no output)'}</pre>` : '<div class="console-gap"></div>'}
       ${result.error ? errorBoxHtml(result.error) : ''}
     </div>`;
   const btn = host.querySelector('.err-line');
@@ -50,14 +50,15 @@ export function renderConsole(host, st) {
 
 function diffHtml(expected, actual) {
   const e = normalizeOutput(expected).split('\n');
-  const a = normalizeOutput(actual || '').split('\n');
+  const aNorm = normalizeOutput(actual || '');
+  const a = aNorm === '' ? [] : aNorm.split('\n');
   const n = Math.max(e.length, a.length);
   let left = '', right = '';
   for (let i = 0; i < n; i++) {
     const same = e[i] === a[i];
     const show = (s) => (s === undefined ? '' : s === '' ? ' ' : esc(s));
     left += `<span class="dl${same ? '' : ' bad'}">${show(e[i])}</span>`;
-    right += `<span class="dl${same ? '' : ' bad'}">${a[i] === undefined ? '<i class="missing">missing</i>' : show(a[i])}</span>`;
+    right += `<span class="dl${same ? '' : ' bad'}">${a[i] === undefined ? `<i class="missing">${a.length ? 'missing line' : 'nothing printed'}</i>` : show(a[i])}</span>`;
   }
   return `<div class="diff">
     <div><span class="label">expected</span><pre>${left}</pre></div>
