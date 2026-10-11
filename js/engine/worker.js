@@ -10,3 +10,6 @@ self.onmessage = (e) => {
   }
   self.postMessage({ id, result });
 };
+
+// Tell the page we loaded fine.
+self.postMessage({ ready: true });

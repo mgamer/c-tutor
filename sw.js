@@ -1,6 +1,6 @@
 // Brick++ service worker: cache-first for app files so the site works offline.
 // Bump VERSION whenever any file changes to make clients pick up the new build.
-const VERSION = 'brickpp-v2';
+const VERSION = 'brickpp-v3';
 const FONT_CACHE = 'brickpp-fonts';
 
 const APP_FILES = [
@@ -81,15 +81,16 @@ self.addEventListener('fetch', (event) => {
 
   if (url.origin !== self.location.origin) return;
 
+  // Network-first: always get the latest version when online, use the cache when offline.
   event.respondWith((async () => {
     const cache = await caches.open(VERSION);
-    const hit = await cache.match(req, { ignoreSearch: true });
-    if (hit) return hit;
     try {
-      const res = await fetch(req);
+      const res = await fetch(req, { cache: 'no-cache' });
       if (res.ok && res.type === 'basic') cache.put(req, res.clone());
       return res;
     } catch (e) {
+      const hit = await cache.match(req, { ignoreSearch: true });
+      if (hit) return hit;
       if (req.mode === 'navigate') {
         const shell = await cache.match('./index.html');
         if (shell) return shell;

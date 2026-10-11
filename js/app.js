@@ -3,6 +3,11 @@ import * as game from './game.js';
 import { loadCurriculum } from './curriculum.js';
 import { renderHeader, highlightNav } from './ui/header.js';
 import { toast } from './ui/toast.js';
+
+// Surface unexpected errors on screen (handy when testing on a phone without dev tools).
+const showCrash = (msg) => toast('Oops: ' + String(msg).slice(0, 160), { icon: '🐞', color: 'red', ms: 8000 });
+window.addEventListener('error', (e) => showCrash(e.message || e.error));
+window.addEventListener('unhandledrejection', (e) => showCrash((e.reason && e.reason.message) || e.reason));
 import { renderHome } from './ui/home.js';
 import { renderWorld } from './ui/world.js';
 import { renderExercise } from './ui/exercise.js';

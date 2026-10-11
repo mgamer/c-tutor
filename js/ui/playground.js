@@ -145,10 +145,14 @@ export function renderPlayground(root) {
     btn.classList.add('loading');
     editor.clearError();
     renderConsole(host, { running: true });
-    const res = await runProgram(editor.getValue(), stdinEl.value);
-    game.recordRun(null, res);
-    if (res.error && res.error.line) editor.markError(res.error.line);
-    renderConsole(host, { result: res, stdin: stdinEl.value, onErrorLine: (l, c) => editor.goToLine(l, c) });
+    try {
+      const res = await runProgram(editor.getValue(), stdinEl.value);
+      game.recordRun(null, res);
+      if (res.error && res.error.line) editor.markError(res.error.line);
+      renderConsole(host, { result: res, stdin: stdinEl.value, onErrorLine: (l, c) => editor.goToLine(l, c) });
+    } catch (e) {
+      renderConsole(host, { result: { stdout: '', error: { kind: 'runtime', message: 'Could not run: ' + (e && e.message || e) } } });
+    }
     if (isMobile()) host.scrollIntoView({ behavior: 'smooth', block: 'start' });
     btn.disabled = false;
     btn.classList.remove('loading');

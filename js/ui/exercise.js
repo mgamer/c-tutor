@@ -205,11 +205,16 @@ export function renderExercise(root, id) {
     renderConsole(consoleHost, { running: true });
     resultsHost.innerHTML = '';
     showOutput();
-    const res = await runProgram(editor.getValue(), stdinEl.value);
-    game.recordRun(id, res);
-    if (res.error && res.error.line) editor.markError(res.error.line);
-    renderConsole(consoleHost, { result: res, stdin: stdinEl.value, onErrorLine });
-    setBusy(false);
+    try {
+      const res = await runProgram(editor.getValue(), stdinEl.value);
+      game.recordRun(id, res);
+      if (res.error && res.error.line) editor.markError(res.error.line);
+      renderConsole(consoleHost, { result: res, stdin: stdinEl.value, onErrorLine });
+    } catch (e) {
+      renderConsole(consoleHost, { result: { stdout: '', error: { kind: 'runtime', message: 'Could not run: ' + (e && e.message || e) } } });
+    } finally {
+      setBusy(false);
+    }
   }
 
   async function check() {
