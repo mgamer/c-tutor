@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Brick++ · Learn C++ brick by brick</title>
+  <meta name="description" content="A LEGO-themed playground for learning C++: snap together programs, earn studs and build your tower.">
+  <meta name="theme-color" content="#d01012">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icons/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="icons/icon-192.png">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="Brick++">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=JetBrains+Mono:wght@400;600&display=swap">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="modulepreload" href="js/app.js">
+</head>
+<body>
+  <a class="skip-link" href="#view">Skip to content</a>
+  <header class="topbar">
+    <a class="logo" href="#/home" aria-label="Brick++ home">
+      <svg class="logo-brick" viewBox="0 0 64 48" aria-hidden="true">
+        <rect x="10" y="4" width="14" height="8" rx="2" fill="#c9a018"/><rect x="40" y="4" width="14" height="8" rx="2" fill="#c9a018"/>
+        <rect x="11" y="3" width="12" height="7" rx="2" fill="#ffe27a"/><rect x="41" y="3" width="12" height="7" rx="2" fill="#ffe27a"/>
+        <rect x="2" y="10" width="60" height="34" rx="5" fill="#f2cd37"/><rect x="2" y="36" width="60" height="8" rx="4" fill="#c9a018"/>
+        <rect x="8" y="15" width="30" height="4" rx="2" fill="#fff" opacity=".45"/>
+      </svg>
+      <span class="logo-text">Brick<span>++</span></span>
+    </a>
+    <nav class="mainnav" aria-label="Main">
+      <a href="#/home" data-nav="home">🗺️ Map</a>
+      <a href="#/quiz" data-nav="quiz">❓ Quiz</a>
+      <a href="#/playground" data-nav="playground">🛠️ Playground</a>
+      <a href="#/profile" data-nav="profile">🧑 Profile</a>
+    </nav>
+    <div id="hud" class="hud"></div>
+  </header>
+  <main id="view" class="view" tabindex="-1">
+    <div class="boot"><span class="snap-loader" aria-hidden="true"><i></i><i></i><i></i></span> Loading bricks…</div>
+  </main>
+  <nav class="bottomnav" aria-label="Main">
+    <a href="#/home" data-nav="home"><span aria-hidden="true">🗺️</span>Map</a>
+    <a href="#/quiz" data-nav="quiz"><span aria-hidden="true">❓</span>Quiz</a>
+    <a href="#/playground" data-nav="playground"><span aria-hidden="true">🛠️</span>Build</a>
+    <a href="#/profile" data-nav="profile"><span aria-hidden="true">🧑</span>Me</a>
+  </nav>
+  <noscript><p class="brick-card" style="margin:20px">Brick++ needs JavaScript to run.</p></noscript>
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>

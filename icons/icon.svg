@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <rect width="512" height="512" rx="112" fill="#f2cd37"/>
+  <rect width="512" height="512" rx="112" fill="url(#g)" opacity=".35"/>
+  <defs>
+    <radialGradient id="g" cx=".3" cy=".2" r=".9"><stop offset="0" stop-color="#fff"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient>
+    <g id="stud">
+      <ellipse cx="0" cy="22" rx="46" ry="21" fill="#8f0a0c"/>
+      <rect x="-46" y="0" width="92" height="22" fill="#a50d0f"/>
+      <ellipse cx="0" cy="0" rx="46" ry="21" fill="#f04a43"/>
+      <ellipse cx="-14" cy="-6" rx="18" ry="7" fill="#fff" opacity=".45"/>
+    </g>
+  </defs>
+  <rect x="86" y="300" width="340" height="132" rx="26" fill="#9b0c0e"/>
+  <rect x="86" y="292" width="340" height="122" rx="26" fill="#d01012"/>
+  <rect x="86" y="138" width="340" height="180" rx="30" fill="#e8322f"/>
+  <rect x="112" y="152" width="140" height="12" rx="6" fill="#fff" opacity=".35"/>
+  <use href="#stud" x="176" y="175"/>
+  <use href="#stud" x="336" y="175"/>
+  <use href="#stud" x="176" y="250"/>
+  <use href="#stud" x="336" y="250"/>
+  <rect x="112" y="340" width="190" height="12" rx="6" fill="#fff" opacity=".18"/>
+</svg>
